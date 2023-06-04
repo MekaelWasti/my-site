@@ -1,5 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
+  height: 100vh;
+  background-color: #111111;
   text-align: center;
+  color: white;
 }
 
 .App-logo {
@@ -35,4 +44,78 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Main Page */
+
+.title {
+  text-align: center;
+  padding: 2em 0 1em 0;
+  margin: 0 0 0 0;
+}
+
+/* Project List */
+
+.project-list {
+}
+
+.project-list > li,
+.project-list .links {
+  display: inline-block;
+  list-style: upper-roman;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0px 0 4px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: white;
+}
+
+.divider {
+  display: inline;
+  font-size: 23px;
+}
+
+/* Handwritten Digit Recognizer */
+
+.hdr-app {
+  user-select: none;
+  background-color: white;
+  display: flex;
+}
+
+.drawing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #171717;
+  flex-basis: 65%;
+}
+
+.drawing-section button {
+  background-color: white;
+  border: none;
+  border-radius: 3%;
+  font-weight: 900;
+  margin: 0 0 15px 0;
+  letter-spacing: 4px;
+}
+
+.recognize-button {
+  font-size: 16px;
+  width: 25%;
+  height: 50px;
+}
+
+.clear-button {
+  font-size: 10px;
+  width: 10%;
+  height: 20px;
+}
+
+.prediction-section {
+  background-color: #ececec;
+  flex-basis: 35%;
+  color: #171717;
 }
