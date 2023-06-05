@@ -27,7 +27,9 @@ const DrawingPad = ({ onSaveDrawing }) => {
     const draw = (e) => {
       if (!isDrawing) return;
       context.strokeStyle = "#FFFFFF";
-      context.lineWidth = 6;
+      context.lineWidth = 13;
+      // context.lineWidth = 6;
+      // context.lineWidth = 2;
       context.lineJoin = "round";
       context.lineCap = "round";
 
@@ -63,7 +65,7 @@ const DrawingPad = ({ onSaveDrawing }) => {
     const imageData = canvas.toDataURL("image/png");
 
     try {
-      const response = await fetch("http://127.0.0.1:3000/predict", {
+      const response = await fetch("http://127.0.0.1:5000/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
