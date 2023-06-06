@@ -75,6 +75,8 @@ const DrawingPad = ({ onSaveDrawing }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(imageData),
+        // Disable certificate verification
+        agent: new https.Agent({ rejectUnauthorized: false }),
       });
 
       if (response.ok) {
