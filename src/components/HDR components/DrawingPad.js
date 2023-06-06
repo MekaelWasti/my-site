@@ -13,7 +13,7 @@ const DrawingPad = ({ onSaveDrawing }) => {
     canvas.height = parentDiv.offsetHeight;
 
     context.fillStyle = "#171717";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillRect(0, 0, canvas.width * 2, canvas.height * 2);
 
     let isDrawing = false;
     let lastX = 0;
@@ -72,6 +72,52 @@ const DrawingPad = ({ onSaveDrawing }) => {
         },
         body: JSON.stringify(imageData),
       });
+
+      if (response.ok) {
+        const data = await response.json();
+        const result = data.result;
+        console.log(result);
+
+        let digitInWord = "";
+
+        switch (result) {
+          case 0:
+            digitInWord = "ZERO";
+            break;
+          case 1:
+            digitInWord = "ONE";
+            break;
+          case 2:
+            digitInWord = "TWO";
+            break;
+          case 3:
+            digitInWord = "THREE";
+            break;
+          case 4:
+            digitInWord = "FOUR";
+            break;
+          case 5:
+            digitInWord = "FIVE";
+            break;
+          case 6:
+            digitInWord = "SIX";
+            break;
+          case 7:
+            digitInWord = "SEVEN";
+            break;
+          case 8:
+            digitInWord = "EIGHT";
+            break;
+          case 9:
+            digitInWord = "NINE";
+            break;
+        }
+
+        document.getElementById("result").innerHTML =
+          result + " | " + digitInWord;
+      } else {
+        console.log("Request Failed with status:", response.status);
+      }
     } catch (e) {
       console.log("Error");
     }

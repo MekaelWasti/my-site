@@ -31,7 +31,7 @@ const HandwrittenDigitRecognizer = () => {
         <div className="prediction-section">
           <h2>PREDICTED DIGIT</h2>
           {/* <h3>RESULT</h3> */}
-          <h3>8 | EIGHT</h3>
+          <h3 id="result">DRAW AN IMAGE</h3>
         </div>
       </div>
     </div>

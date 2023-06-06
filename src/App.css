@@ -115,6 +115,10 @@
 }
 
 .prediction-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #ececec;
   flex-basis: 35%;
   color: #171717;
