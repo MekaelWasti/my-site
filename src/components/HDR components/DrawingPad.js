@@ -67,16 +67,19 @@ const DrawingPad = ({ onSaveDrawing }) => {
     try {
       // const response = await fetch("http://127.0.0.1:5000/predict", {
       // const response = await fetch("https://99.232.136.159:63030/predict", {
-      const response = await fetch("https://api.mekaelwasti.com:63030/", {
-        // const response = await fetch(
-        // "https://mekaelwasti-mekaelwasti.vercel.app/predict",
-        // {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(imageData),
-      });
+      const response = await fetch(
+        "https://api.mekaelwasti.com:63030/predict",
+        {
+          // const response = await fetch(
+          // "https://mekaelwasti-mekaelwasti.vercel.app/predict",
+          // {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(imageData),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
