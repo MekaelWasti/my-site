@@ -16,7 +16,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1 className="title">MEKAEL WASTI</h1>
+        <h1 className="title">
+          <Link to="/" className="title-link">
+            MEKAEL WASTI
+          </Link>
+        </h1>
         <ul className="project-list">
           <li>
             <Link to="/" className="links">

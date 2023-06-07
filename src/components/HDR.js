@@ -14,7 +14,8 @@ const HandwrittenDigitRecognizer = () => {
 
   return (
     <div>
-      <h1 className="title">Handwritten Digit Recognizer</h1>
+      {/* <h1 className="project-title">Handwritten Digit Recognizer</h1> */}
+      <h1 className="project-title">HANDWRITTEN DIGIT RECOGNIZER</h1>
 
       <div className="hdr-app">
         <div className="drawing-section">
