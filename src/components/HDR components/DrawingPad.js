@@ -59,7 +59,7 @@ const DrawingPad = ({ onSaveDrawing }) => {
 
   const saveDrawing = async () => {
     const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+    // const context = canvas.getContext("2d");
 
     // Convert canvas to data URL
     const imageData = canvas.toDataURL("image/png");
@@ -75,8 +75,6 @@ const DrawingPad = ({ onSaveDrawing }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(imageData),
-        // Disable certificate verification
-        agent: new (require("https").Agent)({ rejectUnauthorized: false }),
       });
 
       if (response.ok) {
@@ -117,6 +115,8 @@ const DrawingPad = ({ onSaveDrawing }) => {
           case 9:
             digitInWord = "NINE";
             break;
+          default:
+            digitInWord = "NA";
         }
 
         document.getElementById("result").innerHTML =
