@@ -29,8 +29,8 @@ const DrawingPad = ({ onSaveDrawing }) => {
       e.preventDefault();
       isDrawing = true;
       [lastX, lastY] = [
-        e.clientX || e.touches[0].clientX - rect.left,
-        e.clientY || e.touches[0].clientY - rect.top,
+        e.offsetX || e.touches[0].clientX - rect.left,
+        e.offsetY || e.touches[0].clientY - rect.top,
       ];
     };
 
@@ -38,8 +38,8 @@ const DrawingPad = ({ onSaveDrawing }) => {
       if (!isDrawing) return;
 
       const rect = canvas.getBoundingClientRect();
-      const x = e.clientX || e.touches[0].clientX - rect.left;
-      const y = e.clientY || e.touches[0].clientY - rect.top;
+      const x = e.offsetX || e.touches[0].clientX - rect.left;
+      const y = e.offsetY || e.touches[0].clientY - rect.top;
 
       context.strokeStyle = "#FFFFFF";
       context.lineWidth = 13;
