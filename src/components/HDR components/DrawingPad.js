@@ -19,13 +19,28 @@ const DrawingPad = ({ onSaveDrawing }) => {
     let lastX = 0;
     let lastY = 0;
 
+    // const startDrawing = (e) => {
+    // isDrawing = true;
+    // [lastX, lastY] = [e.offsetX, e.offsetY];
+    // };
+
     const startDrawing = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      e.preventDefault();
       isDrawing = true;
-      [lastX, lastY] = [e.offsetX, e.offsetY];
+      [lastX, lastY] = [
+        e.clientX || e.touches[0].clientX - rect.left,
+        e.clientY || e.touches[0].clientY - rect.top,
+      ];
     };
 
     const draw = (e) => {
       if (!isDrawing) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX || e.touches[0].clientX - rect.left;
+      const y = e.clientY || e.touches[0].clientY - rect.top;
+
       context.strokeStyle = "#FFFFFF";
       context.lineWidth = 13;
       // context.lineWidth = 6;
@@ -35,12 +50,13 @@ const DrawingPad = ({ onSaveDrawing }) => {
 
       context.beginPath();
       context.moveTo(lastX, lastY);
-      context.lineTo(e.offsetX, e.offsetY);
+      context.lineTo(x, y);
       context.stroke();
-      [lastX, lastY] = [e.offsetX, e.offsetY];
+      [lastX, lastY] = [x, y];
     };
 
-    const stopDrawing = () => {
+    const stopDrawing = (e) => {
+      e.preventDefault();
       isDrawing = false;
     };
 
@@ -48,6 +64,11 @@ const DrawingPad = ({ onSaveDrawing }) => {
     canvas.addEventListener("mousemove", draw);
     canvas.addEventListener("mouseup", stopDrawing);
     canvas.addEventListener("mouseout", stopDrawing);
+
+    canvas.addEventListener("touchstart", startDrawing);
+    canvas.addEventListener("touchmove", draw);
+    canvas.addEventListener("touchend", (e) => stopDrawing(e));
+    canvas.addEventListener("touchcancel", (e) => stopDrawing(e));
 
     return () => {
       canvas.removeEventListener("mousedown", startDrawing);
@@ -120,7 +141,7 @@ const DrawingPad = ({ onSaveDrawing }) => {
             digitInWord = "NINE";
             break;
           default:
-            digitInWord = "NA";
+            digitInWord = "N/A";
         }
 
         document.getElementById("result").innerHTML =
