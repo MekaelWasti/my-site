@@ -12,8 +12,18 @@ const DrawingPad = ({ onSaveDrawing }) => {
     canvas.width = parentDiv.offsetWidth;
     canvas.height = parentDiv.offsetHeight;
 
-    context.fillStyle = "#171717";
-    context.fillRect(0, 0, canvas.width * 2, canvas.height * 2);
+    // Get the maximum dimension (width or height) of the parent container
+    // const maxDimension = Math.max(
+    // canvas.parentNode.offsetWidth,
+    // canvas.parentNode.offsetHeight
+    // );
+
+    // Set the canvas dimensions to be a square
+    // canvas.width = maxDimension;
+    // canvas.height = maxDimension;
+
+    // context.fillStyle = "#171717";
+    // context.fillRect(0, 0, canvas.width, canvas.height);
 
     let isDrawing = false;
     let lastX = 0;
@@ -42,7 +52,8 @@ const DrawingPad = ({ onSaveDrawing }) => {
       const y = e.offsetY || e.touches[0].clientY - rect.top;
 
       context.strokeStyle = "#FFFFFF";
-      context.lineWidth = 13;
+      context.lineWidth = 16;
+      // context.lineWidth = 9;
       // context.lineWidth = 6;
       // context.lineWidth = 2;
       context.lineJoin = "round";
