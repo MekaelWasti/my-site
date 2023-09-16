@@ -1,7 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+@import url(//db.onlinewebfonts.com/c/6a28a1fb5b77054a12626d0c23c92aa2?family=CeraCY-Bold);
 
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "CeraCY-Bold", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+}
+
+::selection {
+  background: linear-gradient(to right, #ff00cc, #3333ff);
+  color: rgb(124, 124, 124);
 }
 
 .App {
@@ -9,6 +16,7 @@
   background-color: #111111;
   text-align: center;
   color: white;
+  background-color: #171717;
 }
 
 .App-logo {
@@ -83,7 +91,7 @@
   font-size: 23px;
 }
 
-/* Handwritten Digit Recognizer */
+/* START: Handwritten Digit Recognizer */
 
 .hdr-app {
   user-select: none;
@@ -132,7 +140,56 @@
   color: #171717;
 }
 
-/* End Handwritten Digit Recognizer */
+/* END: Handwritten Digit Recognizer */
+
+/* START: NEURAL MACHINE TRANSLATION */
+
+.language_selections {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: space-between; */
+}
+
+.input_language {
+  padding-right: 6vw;
+}
+.target_language {
+  padding-left: 6vw;
+}
+
+.input_fields {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6vh;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.input {
+  display: flex;
+  margin: 0vw 0vw 2vw 2vw;
+}
+
+.inputField {
+  margin: 2vw 0vw 2vw 2vw;
+  padding: 0 0vw 0 0;
+  width: 40vw;
+}
+
+.resultField {
+  margin: 2vw 0vw 2vw 2vw;
+  padding: 0 0vw 0 0;
+  width: 40vw;
+}
+
+.result {
+  display: flex;
+}
+
+/* END: NEURAL MACHINE TRANSLATION */
+
+/* MOBILE QUERIES */
 
 @media (max-width: 430px) {
   .title {
@@ -167,7 +224,7 @@
     font-weight: 500;
   }
 
-  /* Handwritten Digit Recognizer */
+  /* START: Handwritten Digit Recognizer Mobile */
 
   .hdr-app {
     user-select: none;
@@ -227,5 +284,5 @@
     margin: 5px 0 5px 0;
   }
 
-  /* End Handwritten Digit Recognizer */
+  /* END: Handwritten Digit Recognizer Mobile */
 }

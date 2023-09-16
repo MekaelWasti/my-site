@@ -13,14 +13,15 @@ const DrawingPad = ({ onSaveDrawing }) => {
     canvas.height = parentDiv.offsetHeight;
 
     // Get the maximum dimension (width or height) of the parent container
-    // const maxDimension = Math.max(
-    // canvas.parentNode.offsetWidth,
-    // canvas.parentNode.offsetHeight
-    // );
+    const maxDimension = Math.max(
+      canvas.parentNode.offsetWidth,
+      canvas.parentNode.offsetHeight
+    );
 
     // Set the canvas dimensions to be a square
-    // canvas.width = maxDimension;
-    // canvas.height = maxDimension;
+    const scaleFactor = 2;
+    canvas.width = maxDimension;
+    canvas.height = maxDimension;
 
     // context.fillStyle = "#171717";
     // context.fillRect(0, 0, canvas.width, canvas.height);
@@ -100,7 +101,7 @@ const DrawingPad = ({ onSaveDrawing }) => {
       // const response = await fetch("http://127.0.0.1:5000/predict", {
       // const response = await fetch("https://99.232.136.159:63030/predict", {
       const response = await fetch(
-        "https://api.mekaelwasti.com:63030/predict",
+        "https://api.mekaelwasti.com:63030/hdr_inference",
         {
           // const response = await fetch(
           // "https://mekaelwasti-mekaelwasti.vercel.app/predict",
@@ -161,7 +162,7 @@ const DrawingPad = ({ onSaveDrawing }) => {
         console.log("Request Failed with status:", response.status);
       }
     } catch (e) {
-      console.log("Error");
+      console.log("Error: HDR INFERENCE");
     }
   };
 
